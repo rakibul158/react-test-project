@@ -9,10 +9,13 @@ class Header extends Component {
         }
     }
     render() {
-        const {yeah} = this.props.info;
+        const {name} = this.props.info;
+        const { showName, handleClickMe } = this.props;
+        // console.log("Header---->>", showName);
         return (
             <div>
-                <h3>{yeah}</h3>
+                <button name={name} onClick={handleClickMe}>Click Me!</button>
+                <h2>{showName}</h2>
             </div>
         );
     }

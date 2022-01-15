@@ -8,14 +8,27 @@ class Home extends Component {
         super(props);
         // console.log(this.props);
         this.state = {
-
+            showName: ''
         }
+        this.handleClickMe= this.handleClickMe.bind(this)
     }
+
+    handleClickMe(e){
+        const clickValue = e.target.getAttribute('name');
+        this.setState({
+            showName: clickValue
+        });
+    };
+    
     render() {
-        const { info } = this.props; 
+        const { showName } = this.state;
         return (
             <>
-                <Header info={ info }></Header>
+                <Header 
+                    info={this.props.info}
+                    showName={showName}
+                    handleClickMe={this.handleClickMe}>
+                </Header>
             </>
         );
     }
